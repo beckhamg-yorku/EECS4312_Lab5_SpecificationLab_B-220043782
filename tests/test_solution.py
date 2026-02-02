@@ -1,5 +1,5 @@
-## Student Name:
-## Student ID: 
+## Student Name: Beckham Gahirwa
+## Student ID: 220043782
 
 """
 Public test suite for the meeting slot suggestion exercise.
@@ -46,3 +46,45 @@ def test_non_dict_request_raises():
         is_allocation_feasible(resources, requests)
 
 """TODO: Add at least 5 additional test cases to test your implementation."""
+def test_empty_requests_is_feasible():
+    # No requests should always be feasible
+    resources = {'cpu': 5, 'mem': 10}
+    requests = []
+    assert is_allocation_feasible(resources, requests) is True
+
+
+def test_exact_capacity_is_feasible():
+    # Boundary: exactly equals capacity should be feasible
+    resources = {'cpu': 10}
+    requests = [{'cpu': 6}, {'cpu': 4}]
+    assert is_allocation_feasible(resources, requests) is True
+
+
+def test_zero_capacity_with_zero_demand_is_feasible():
+    # Zero capacity is fine if demand is zero
+    resources = {'cpu': 0}
+    requests = [{'cpu': 0}, {'cpu': 0}]
+    assert is_allocation_feasible(resources, requests) is True
+
+
+def test_float_amounts_supported():
+    # Your stub allows float; feasibility must work with floats
+    resources = {'cpu': 5.5, 'mem': 10.0}
+    requests = [{'cpu': 2.25, 'mem': 3.5}, {'cpu': 3.25, 'mem': 6.5}]
+    assert is_allocation_feasible(resources, requests) is True
+
+
+def test_negative_request_amount_raises():
+    # Negative demand is nonsensical: should raise
+    resources = {'cpu': 5}
+    requests = [{'cpu': -1}]
+    with pytest.raises(ValueError):
+        is_allocation_feasible(resources, requests)
+
+
+def test_negative_capacity_raises():
+    # Negative capacity is invalid: should raise
+    resources = {'cpu': -5}
+    requests = [{'cpu': 0}]
+    with pytest.raises(ValueError):
+        is_allocation_feasible(resources, requests)
