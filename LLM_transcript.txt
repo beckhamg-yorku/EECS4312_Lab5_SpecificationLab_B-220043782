@@ -1,0 +1,4 @@
+The transcript shows my interaction with the LLM where I used it to clarify the problem requirements, especially around input formats, 
+edge cases, and hidden test expectations. It helped me generate stronger acceptance criteria and additional 
+test cases to prevent common failures like missing resources or invalid request structures. Overall, 
+the interaction improved both my understanding of the task and the reliability of my final implementation.
