@@ -1,6 +1,6 @@
 ## TODO:
-## Student Name:
-## Student ID: 
+## Student Name: Beckham Gahirwa
+## Student ID: 220043782
 
 # Is Resource Allocation Feasible Lab Repository
 
