@@ -1,4 +1,16 @@
-The transcript shows my interaction with the LLM where I used it to clarify the problem requirements, especially around input formats, 
-edge cases, and hidden test expectations. It helped me generate stronger acceptance criteria and additional 
-test cases to prevent common failures like missing resources or invalid request structures. Overall, 
-the interaction improved both my understanding of the task and the reliability of my final implementation.
+LLM Transcript (Phase 2 – Requirement Change)
+
+User: A new requirement says that at least one resource must remain unallocated after assignment. How should this change my implementation?
+LLM: You should update the feasibility condition so that staying within capacity is no longer sufficient. After processing all requests, the function must check that at least one resource still has unused capacity.
+
+User: Does that mean an allocation that exactly matches all capacities is now invalid?
+LLM: Yes. Even if all requests fit perfectly, the allocation should be rejected if every resource is fully consumed.
+
+User: What is the simplest way to implement this check?
+LLM: After summing all requests, add a final condition that returns true only if there exists at least one resource where total usage is strictly less than its capacity.
+
+User: Which test cases should change under this new requirement?
+LLM: Any test that previously expected a perfect-fit allocation to be feasible should now fail. You should also add new tests to confirm that leaving unused capacity in at least one resource is still considered valid.
+
+User: Does this affect input validation or error handling?
+LLM: No, existing validation rules stay the same. The change only affects the final feasibility condition.
