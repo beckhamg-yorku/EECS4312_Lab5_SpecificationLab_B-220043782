@@ -1,4 +1,16 @@
-The transcript shows my interaction with the LLM where I used it to clarify the problem requirements, especially around input formats, 
-edge cases, and hidden test expectations. It helped me generate stronger acceptance criteria and additional 
-test cases to prevent common failures like missing resources or invalid request structures. Overall, 
-the interaction improved both my understanding of the task and the reliability of my final implementation.
+LLM Transcript
+
+User: How should I approach implementing is_allocation_feasible for this lab?
+LLM: Start by clearly defining what makes an allocation feasible. In most cases, feasibility means the total requested amount for each resource does not exceed its available capacity.
+
+User: What should happen if a request asks for a resource that isn’t available?
+LLM: A reasonable assumption is that the allocation should be considered infeasible, since there is no capacity to satisfy that request.
+
+User: Should I validate the structure of the requests?
+LLM: Yes. Each request should be a dictionary. If a request is not a dictionary, the function should raise an error to indicate invalid input.
+
+User: What edge cases might appear in hidden tests?
+LLM: Hidden tests often include negative values, floating-point numbers, empty request lists, or malformed inputs. Adding validation and boundary checks will help your solution pass those cases.
+
+User: Can you help me design acceptance criteria and extra test cases?
+LLM: You should include criteria for exact capacity matches, overloaded resources, missing resources, invalid request formats, and empty request lists. Writing tests for these cases will improve correctness and robustness.
