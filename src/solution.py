@@ -74,4 +74,5 @@ def is_allocation_feasible(
             if totals[name] > capacities[name]:
                 return False
 
-    return True
+    has_leftover = any(totals[r] < capacities[r] for r in capacities)
+    return has_leftover
